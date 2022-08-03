@@ -118,6 +118,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
 
 INSTALLED_APPS = [
     'posts.apps.PostsConfig',
@@ -128,12 +130,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',    
 ]
-from django.shortcuts import render
-
-
-def index(request):
-    template = 'posts/index.html'
-    return render(request, template)
 
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 TEMPLATES = [

@@ -1,7 +1,6 @@
 <!DOCTYPE html> <!-- Используется html 5 версии -->
 <html lang="ru"> <!-- Язык сайта - русский -->
 {% extends 'base.html'%}  
-{% load static %}
   <head>    
     <meta charset="utf-8"> <!-- Кодировка сайта -->
     <!-- Сайт готов работать с мобильными устройствами -->
@@ -19,19 +18,19 @@
 
     <title>
       {% block title %}
-      Последние обновления на сайте
+        Записи сообщества {{ group.title }}
       {% endblock %}
     </title>
   </head>
   <body>
     <header>
     </header>
-    <main>
 
-      
-      {% block content %} 
-      {% for post in posts %}
+    
+    <main>
+      {% block content %}
       <!-- класс py-5 создает отступы сверху и снизу блока -->
+      {% for post in posts %}
       <div class="container py-5">
         <ul>
           <li>
@@ -42,19 +41,13 @@
           </li>
         </ul>
         <p>{{ post.text }}</p>
-        {% if post.group %}    
-        <a href="{% url 'posts:group_posts' post.group.slug %}">все записи группы</a>
-        {% endif %}
-        {% if not forloop.last %}<hr>{% endif %}    
+        {% if not forloop.last %}<hr>{% endif %}
+        <h1>{{ text_2 }}</h1>
       </div>
-      {% endfor %}    
-      {% endblock %}
+      {% endfor %}
+      {% endblock %}  
     </main>
-    <!-- Использованы классы бустрапа: -->
-    <!-- border-top: создаёт тонкую линию сверху блока -->
-    <!-- text-center: выравнивает текстовые блоки внутри блока по центру -->
-    <!-- py-3: контент внутри размещается с отступом сверху и снизу -->         
-    <footer class="border-top text-center py-3">   
+    <footer class="page-footer font-small blue border-top">
     </footer>
   </body>
 </html>
