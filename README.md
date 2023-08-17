@@ -9,20 +9,42 @@ Django 2.2.19
 
 ## Запуск проекта в dev-режиме
 
-- Установите и активируйте виртуальное окружение
+Клонировать репозиторий и перейти в него в командной строке:
 
-- Установите зависимости из файла requirements.txt
+```
+https://github.com/Katerinair8/yatube_project.git
+```
 
-```text
+Cоздать и активировать виртуальное окружение:
+
+```
+python -m venv venv
+```
+В зависимости от операционной системы
+```
+source venv/Scripts/activate или source venv/bin/activate
+```
+ Установить зависимости из файла requirements.txt:
+
+```
+python -m pip install --upgrade pip
+```
+
+```
 pip install -r requirements.txt
 ```
 
-- В папке с файлом manage.py выполните команду:
+Создать и выполнить миграции:
 
-```text
-python3 manage.py runserver
+```
+python manage.py makemigrations
 ```
 
-### Автор
+```
+python manage.py migrate
+```
 
-Катя
+Запустить проект:
+
+```
+python manage.py runserver
